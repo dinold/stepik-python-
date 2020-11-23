@@ -1,0 +1,14 @@
+s = input().lower().split()
+for y in range(len(s)):
+    if len(s)==0:
+        break
+    z=0
+    now=s[0]
+    count=0
+    for i in range(len(s)):
+        if now==s[i]:
+            count+=1
+    while z<count:
+        s.remove(now)
+        z=z+1
+    print(now,count)
