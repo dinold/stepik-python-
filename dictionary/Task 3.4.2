@@ -1,0 +1,35 @@
+text = open("dataset_3363_3.txt", 'r')
+s = text.read().replace('\n', ' ').lower().split()
+text.close()
+slovar = {}
+lstKeys = list()
+lstZnach = list()
+for y in range(len(s)):
+    if len(s)==0:
+        break
+    z=0
+    now=s[0]
+    count=0
+    for i in range(len(s)):
+        if now==s[i]:
+            count+=1
+    while z<count:
+        s.remove(now)
+        z=z+1
+    slovar[now]=count
+    lstKeys.append(now)
+    lstZnach.append(count)
+
+
+## Заполнили словарь, проверяем самое большое число
+maxZnach = lstZnach[0]
+maxKeys = lstKeys[0]
+for i in range(len(lstZnach)):
+    if lstKeys[i]>maxKeys:
+        if lstZnach[i]>maxZnach:
+         maxZnach = lstZnach[i]
+         maxKeys = lstKeys[i]
+
+
+
+print(maxKeys,maxZnach)
